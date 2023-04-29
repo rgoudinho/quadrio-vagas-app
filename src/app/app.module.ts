@@ -7,6 +7,7 @@ import { CompaniesComponent } from './companies/companies.component';
 import { CompanieComponent } from './companie/companie.component';
 import { JobComponent } from './job/job.component';
 import { HeaderComponent } from './header/header.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -15,9 +16,10 @@ import { HeaderComponent } from './header/header.component';
     CompaniesComponent,
     CompanieComponent,
     JobComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule
   ],
   providers: [],
