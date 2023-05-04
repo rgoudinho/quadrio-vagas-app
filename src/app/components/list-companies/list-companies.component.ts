@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Companie } from 'src/app/models/companie';
+import { CompanieService } from '../../services/companie.service';
 
 @Component({
   selector: 'app-list-companies',
@@ -6,5 +8,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./list-companies.component.css']
 })
 export class ListCompaniesComponent {
+  companies!: Companie[];
+
+  constructor(private companieService: CompanieService) {}
+
+  ngOnInit() {
+    this.getCompanie();
+  }
+
+  getCompanie() {
+    this.companieService.getCompanie().subscribe((companies: Companie[]) => {
+      this.companies = companies;
+    });
+  }
 
 }

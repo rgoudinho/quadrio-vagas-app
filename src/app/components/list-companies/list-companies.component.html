@@ -1,1 +1,3 @@
-<app-companie></app-companie>
+<div *ngFor="let companie of companies">
+  <app-companie [companie]="companie" />
+</div>

@@ -1,4 +1,4 @@
-export interface Companie {
-  id: number;
-  name: string;
+export class Companie {
+  id: number = 1;
+  name: string = "";
 }

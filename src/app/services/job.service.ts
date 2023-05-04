@@ -23,7 +23,7 @@ export class JobService {
       catchError(this.handleError))
   }
 
-  getCarById(id: number): Observable<Job> {
+  getCompanieById(id: number): Observable<Job> {
     return this.httpClient.get<Job>(this.url + '/' + id)
       .pipe(
         retry(2),
