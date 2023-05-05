@@ -1,42 +1,44 @@
-<div class="containe">
-  <div class="row">
-    <form
-      id="add-form"
-      (ngSubmit)="f.form.valid && saveCompanie(f)"
-      #f="ngForm"
-      novalidate
-    >
-      <div class="row">
-        <div class="col-6">
-          <label for="name">Nome:</label>
-          <input
-            type="text"
-            [(ngModel)]="companie.name"
-            id="name"
-            name="name"
-            #name="ngModel"
-            required
-            class="form-control"
-            [ngClass]="{ 'is-invalid': f.submitted && name.invalid }"
-            placeholder="Digite o modelo"
-          />
-          <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
-            <div *ngIf="name.errors">Nome é obrigatório</div>
-          </div>
+<div class="container m-2">
+  <form
+    id="add-form"
+    (ngSubmit)="f.form.valid && saveCompanie(f)"
+    #f="ngForm"
+    novalidate
+  >
+    <div class="row">
+      <div class="col-9">
+        <input
+          type="text"
+          [(ngModel)]="companie.name"
+          id="name"
+          name="name"
+          #name="ngModel"
+          required
+          class="form-control"
+          [ngClass]="{ 'is-invalid': f.submitted && name.invalid }"
+          placeholder="Digite o modelo"
+        />
+        <div
+          *ngIf="f.submitted && name.invalid"
+          class="invalid-feedback col-12"
+        >
+          <div *ngIf="name.errors">Nome é obrigatório</div>
         </div>
       </div>
-      <div class="col-6">
-        <button type="submit" class="btn btn-primary">
-          Salvar
-        </button>
-        <button
-          type="reset"
-          class="btn btn-secondary btn-add-companie"
-          (click)="cleanForm(f)"
-        >
-          Cancelar
-        </button>
+      <div class="col-3 row">
+        <div class="col-3">
+          <button type="submit" class="btn btn-primary">Salvar</button>
+        </div>
+        <div class="col-3">
+          <button
+            type="reset"
+            class="btn btn-secondary btn-add-companie"
+            (click)="cleanForm(f)"
+          >
+            Cancelar
+          </button>
+        </div>
       </div>
-    </form>
-  </div>
+    </div>
+  </form>
 </div>
