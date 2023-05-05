@@ -8,6 +8,7 @@ import { CompaniesComponent } from './views/companies/companies.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ListCompaniesComponent } from './components/list-companies/list-companies.component';
+import { FormsModule } from '@angular/forms';
 import { AddCompanieComponent } from './components/add-companie/add-companie.component';
 
 @NgModule({
@@ -15,6 +16,7 @@ import { AddCompanieComponent } from './components/add-companie/add-companie.com
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
+    FormsModule,
   ],
   declarations: [
     AppComponent,

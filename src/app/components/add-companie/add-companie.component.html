@@ -1,18 +1,42 @@
-<div class="container">
-  <form class="row g-3">
-    <div class="col-auto">
-      <label for="inputName" class="visually-hidden">Nome da empresa</label>
-      <input
-        type="text"
-        class="form-control"
-        id="inputName"
-        placeholder="Name"
-      />
-    </div>
-    <div class="col-auto">
-      <button type="submit" class="btn btn-primary mb-3">
-        Adicionar empresa
-      </button>
-    </div>
-  </form>
+<div class="containe">
+  <div class="row">
+    <form
+      id="add-form"
+      (ngSubmit)="f.form.valid && saveCompanie(f)"
+      #f="ngForm"
+      novalidate
+    >
+      <div class="row">
+        <div class="col-6">
+          <label for="name">Nome:</label>
+          <input
+            type="text"
+            [(ngModel)]="companie.name"
+            id="name"
+            name="name"
+            #name="ngModel"
+            required
+            class="form-control"
+            [ngClass]="{ 'is-invalid': f.submitted && name.invalid }"
+            placeholder="Digite o modelo"
+          />
+          <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
+            <div *ngIf="name.errors">Nome é obrigatório</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <button type="submit" class="btn btn-primary">
+          Salvar
+        </button>
+        <button
+          type="reset"
+          class="btn btn-secondary btn-add-companie"
+          (click)="cleanForm(f)"
+        >
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
 </div>

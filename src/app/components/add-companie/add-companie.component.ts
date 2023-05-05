@@ -9,7 +9,6 @@ import { Companie } from 'src/app/models/companie';
   styleUrls: ['./add-companie.component.css']
 })
 export class AddCompanieComponent {
-
   companie = {} as Companie;
   companies!: Companie[];
 
