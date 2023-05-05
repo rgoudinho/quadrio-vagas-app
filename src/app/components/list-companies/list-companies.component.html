@@ -1,3 +1,13 @@
-<div *ngFor="let companie of companies">
-  <app-companie [companie]="companie" />
+<div class="list-group container" *ngFor="let companie of companies">
+  <div class="list-group-item">
+  <div class="row">
+    <div class="col-10">{{ companie.name }}</div>
+    <div class="col-1">
+      <button type="button" class="btn btn-danger">Editar</button>
+    </div>
+    <div class="col-1">
+      <button type="button" class="btn btn-secondary">Excruir</button>
+    </div>
+  </div>
+  </div>
 </div>
