@@ -8,6 +8,7 @@ import { CompanieService } from '../../services/companie.service';
   styleUrls: ['./list-companies.component.css']
 })
 export class ListCompaniesComponent {
+  companie = new Companie;
   companies!: Companie[];
 
   constructor(private companieService: CompanieService) {}
@@ -22,4 +23,13 @@ export class ListCompaniesComponent {
     });
   }
 
+  deleteCompanie(companie: Companie) {
+    this.companieService.deleteCompanie(companie).subscribe(() => {
+      this.getCompanie();
+    });
+  }
+
+  editCompanie(companie: Companie) {
+    this.companie = { ...companie };
+  }
 }

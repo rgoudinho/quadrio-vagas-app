@@ -3,10 +3,10 @@
     <div class="row">
       <div class="col-10">{{ companie.name }}</div>
       <div class="col-1">
-        <button type="button" class="btn btn-secondary">Editar</button>
+        <button type="button" class="btn btn-warning btn-sm" (click)="editCompanie(companie)">Editar</button>
       </div>
       <div class="col-1">
-        <button type="button" class="btn btn-danger">Excruir</button>
+        <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deleteCompanie(companie)">Deletar</button>
       </div>
     </div>
   </div>
