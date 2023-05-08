@@ -28,8 +28,4 @@ export class ListCompaniesComponent {
       this.getCompanie();
     });
   }
-
-  editCompanie(companie: Companie) {
-    this.companie = { ...companie };
-  }
 }

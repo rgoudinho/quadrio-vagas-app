@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
+import { retry, catchError, map } from 'rxjs/operators';
 import { Companie } from '../models/companie';
 
 @Injectable({
@@ -23,11 +23,12 @@ export class CompanieService {
       catchError(this.handleError))
   }
 
-  getCompanieById(id: number): Observable<Companie> {
+  getCompanieById(id: number) {
     return this.httpClient.get<Companie>(this.url + '/' + id)
       .pipe(
-        retry(2),
-        catchError(this.handleError)
+        map(response => {
+          return response as Companie;
+        })
       )
   }
 

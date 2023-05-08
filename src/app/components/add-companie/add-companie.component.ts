@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { CompanieService } from '../../services/companie.service';
 import { NgForm } from '@angular/forms';
 import { Companie } from 'src/app/models/companie';
@@ -6,16 +6,25 @@ import { Companie } from 'src/app/models/companie';
 @Component({
   selector: 'app-add-companie',
   templateUrl: './add-companie.component.html',
-  styleUrls: ['./add-companie.component.css']
+  styleUrls: ['./add-companie.component.css'],
 })
 export class AddCompanieComponent {
-  companie = {} as Companie;
+  @Input() companie = new Companie;
+  @Input() isEdit = false;
   companies!: Companie[];
 
   constructor(private companieService: CompanieService) {}
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (!changes['companie'].currentValue[0] && this.companie !== undefined) {
+      this.companie = new Companie();
+    } else {
+      this.companie = changes['companie'].currentValue[0];
+    }
+  }
+
   saveCompanie(form: NgForm) {
-    if (this.companie.id !== undefined) {
+    if (this.isEdit) {
       this.companieService.updateCompanie(this.companie).subscribe(() => {
         this.cleanForm(form);
       });
@@ -28,7 +37,6 @@ export class AddCompanieComponent {
 
   getCompanie() {
     this.companieService.getCompanie().subscribe((companies: Companie[]) => {
-      console.log(this.companieService.getCompanie());
       this.companies = companies;
     });
   }
