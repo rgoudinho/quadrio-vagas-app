@@ -1,9 +1,9 @@
-<div class="list-group container" *ngFor="let companie of companies">
+<div class="list-group container" *ngFor="let company of companies">
   <div class="list-group-item m-1">
     <div class="row">
-      <div class="col-10">{{ companie.name }}</div>
+      <div class="col-10">{{ company.name }}</div>
       <div class="col-1">
-        <a type="button" class="btn btn-warning btn-sm" href="/empresas/{{companie.id}}">
+        <a type="button" class="btn btn-warning btn-sm" href="/empresas/{{company.id}}">
           Editar
         </a>
       </div>
@@ -11,7 +11,7 @@
         <button
           type="button"
           class="btn btn-danger btn-sm ml-1"
-          (click)="deleteCompanie(companie)"
+          (click)="deleteCompany(company)"
         >
           Deletar
         </button>

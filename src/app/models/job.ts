@@ -3,5 +3,5 @@ export class Job {
   title: string = "";
   wage: number = 0;
   description: string = "";
-  companie_id: number = 0;
+  Company_id: number = 0;
 }

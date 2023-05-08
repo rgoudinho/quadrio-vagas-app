@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError, map } from 'rxjs/operators';
-import { Companie } from '../models/companie';
+import { Company } from '../models/company';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CompanieService {
-  url = "http://127.0.0.1:8000/api/companie";
+export class CompanyService {
+  url = "http://127.0.0.1:8000/api/company";
 
   constructor(private httpClient: HttpClient) { }
 
@@ -16,40 +16,40 @@ export class CompanieService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   }
 
-  getCompanie(): Observable<Companie[]> {
-    return this.httpClient.get<Companie[]>(this.url)
+  getCompany(): Observable<Company[]> {
+    return this.httpClient.get<Company[]>(this.url)
     .pipe(
       retry(2),
       catchError(this.handleError))
   }
 
-  getCompanieById(id: number) {
-    return this.httpClient.get<Companie>(this.url + '/' + id)
+  getCompanyById(id: number) {
+    return this.httpClient.get<Company>(this.url + '/' + id)
       .pipe(
         map(response => {
-          return response as Companie;
+          return response as Company;
         })
       )
   }
 
-  saveCompanie(companie: Companie): Observable<Companie> {
-    return this.httpClient.post<Companie>(this.url, JSON.stringify(companie), this.httpOptions)
+  saveCompany(company: Company): Observable<Company> {
+    return this.httpClient.post<Company>(this.url, JSON.stringify(company), this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
       )
   }
 
-  updateCompanie(companie: Companie): Observable<Companie> {
-    return this.httpClient.put<Companie>(this.url + '/' + companie.id, JSON.stringify(companie), this.httpOptions)
+  updateCompany(company: Company): Observable<Company> {
+    return this.httpClient.put<Company>(this.url + '/' + company.id, JSON.stringify(company), this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.handleError)
       )
   }
 
-  deleteCompanie(companie: Companie) {
-    return this.httpClient.delete<Companie>(this.url + '/' + companie.id, this.httpOptions)
+  deleteCompany(company: Company) {
+    return this.httpClient.delete<Company>(this.url + '/' + company.id, this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.handleError)

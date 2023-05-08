@@ -1,7 +1,7 @@
 <div class="container m-2">
   <form
     id="add-form"
-    (ngSubmit)="f.form.valid && saveCompanie(f)"
+    (ngSubmit)="f.form.valid && saveCompany(f)"
     #f="ngForm"
     novalidate
   >
@@ -9,7 +9,7 @@
       <div class="col-9">
         <input
           type="text"
-          [(ngModel)]="companie.name"
+          [(ngModel)]="company.name"
           id="name"
           name="name"
           #name="ngModel"

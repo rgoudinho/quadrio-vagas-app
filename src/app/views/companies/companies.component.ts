@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Companie } from 'src/app/models/companie';
-import { CompanieService } from 'src/app/services/companie.service';
+import { Company } from 'src/app/models/company';
+import { CompanyService } from 'src/app/services/company.service';
 
 @Component({
   selector: 'app-companies',
@@ -12,9 +12,9 @@ export class CompaniesComponent {
   id = 0;
   route: ActivatedRoute;
   isEdit = false;
-  companie!: Companie;
+  company!: Company;
 
-  constructor(route: ActivatedRoute, private companieService: CompanieService) {
+  constructor(route: ActivatedRoute, private companyService: CompanyService) {
     this.route = route;
   }
 
@@ -25,13 +25,13 @@ export class CompaniesComponent {
       this.getById();
     }else
     {
-      this.companie = new Companie;
+      this.company = new Company;
     }
   }
 
   getById() {
-    this.companieService.getCompanieById(this.id).subscribe((companie: Companie) => {
-      this.companie = companie;
+    this.companyService.getCompanyById(this.id).subscribe((company: Company) => {
+      this.company = company;
     });
   }
 }

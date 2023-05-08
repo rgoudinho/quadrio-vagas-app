@@ -9,7 +9,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ListCompaniesComponent } from './components/list-companies/list-companies.component';
 import { FormsModule } from '@angular/forms';
-import { AddCompanieComponent } from './components/add-companie/add-companie.component';
+import { AddCompanyComponent } from './components/add-company/add-company.component';
 
 @NgModule({
   imports: [
@@ -24,7 +24,7 @@ import { AddCompanieComponent } from './components/add-companie/add-companie.com
     CompaniesComponent,
     HeaderComponent,
     ListCompaniesComponent,
-    AddCompanieComponent,
+    AddCompanyComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
