@@ -1,1 +1,103 @@
-<p>form-job works!</p>
+<div class="container m-2">
+  <form
+    id="add-form"
+    (ngSubmit)="f.form.valid && saveJob(f)"
+    #f="ngForm"
+    novalidate
+  >
+    <div class="row">
+      <div class="col-8">
+        <input
+          type="text"
+          [(ngModel)]="job.title"
+          id="title"
+          name="title"
+          #title="ngModel"
+          required
+          class="form-control"
+          [ngClass]="{ 'is-invalid': f.submitted && title.invalid }"
+          placeholder="Titulo"
+        />
+        <div
+          *ngIf="f.submitted && title.invalid"
+          class="invalid-feedback col-12"
+        >
+          <div *ngIf="title.errors">Titulo é obrigatório</div>
+        </div>
+      </div>
+      <div class="col-2">
+        <select
+        [(ngModel)]="job.company_id"
+        id="companyId"
+        name="companyId"
+        #companyId="ngModel"
+        required
+        [ngClass]="{ 'is-invalid': f.submitted && title.invalid }"
+         class="form-select" name="company" id="company">
+          <option *ngFor="let company of companies" value="{{ company.id }}">
+
+            {{ company.name }}
+          </option>
+        </select>
+        <div
+        *ngIf="f.submitted && companyId.invalid"
+        class="invalid-feedback col-12"
+      >
+        <div *ngIf="companyId.errors">Empresa é obrigatório</div>
+      </div>
+      </div>
+      <div class="col-2">
+        <input
+          type="text"
+          [(ngModel)]="job.wage"
+          id="wage"
+          name="wage"
+          #wage="ngModel"
+          required
+          class="form-control"
+          [ngClass]="{ 'is-invalid': f.submitted && wage.invalid }"
+          placeholder="Valor salário"
+        />
+        <div
+          *ngIf="f.submitted && wage.invalid"
+          class="invalid-feedback col-12"
+        >
+          <div *ngIf="wage.errors">O valor do salário é obrigatório</div>
+        </div>
+      </div>
+      <div class="col-12">
+        <input
+          type="text"
+          [(ngModel)]="job.description"
+          id="description"
+          name="description"
+          #description="ngModel"
+          required
+          class="form-control"
+          [ngClass]="{ 'is-invalid': f.submitted && description.invalid }"
+          placeholder="Descrição"
+        />
+        <div
+          *ngIf="f.submitted && description.invalid"
+          class="invalid-feedback col-12"
+        >
+          <div *ngIf="description.errors">Titulo é obrigatório</div>
+        </div>
+      </div>
+      <div class="col row">
+        <div class="col-1">
+          <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
+        </div>
+        <div class="col-1">
+          <button
+            type="reset"
+            class="btn btn-secondary btn-add-companie btn-sm"
+            (click)="cleanForm(f)"
+          >
+            Cancelar
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
