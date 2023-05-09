@@ -1,8 +1,10 @@
-<div class="container" *ngFor="let job of jobs">
-  <div class="card m-1" style="width: 18rem">
+<div class="row" >
+  <div class="col-sm-3" *ngFor="let job of jobs">
+  <div class="card m-1" >
     <div class="card-body">
       <div class="card-title">{{ job.title }}</div>
-      <div class="card-subtitle mb-2">{{ job.company_id }}</div>
+      <!-- Essa forma de pegar a company não me parece correto, mas não tava conseguindo fazer de outra forma -->
+      <div class="card-subtitle mb-2"><app-company-job [companyId]="job.company_id"></app-company-job></div>
       <div class="card-text mb-2">{{ job.description }}</div>
       <a type="button" class="card-link btn btn-warning btn-sm" href="/vagas/save/{{ job.id }}">
         Editar

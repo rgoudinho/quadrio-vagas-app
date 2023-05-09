@@ -13,6 +13,7 @@ import { AddCompanyComponent } from './components/add-company/add-company.compon
 import { ListJobComponent } from './components/list-job/list-job.component';
 import { FormJobComponent } from './components/form-job/form-job.component';
 import { SaveJobComponent } from './views/save-job/save-job.component';
+import { CompanyJobComponent } from './components/list-job/company-job/company-job.component';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import { SaveJobComponent } from './views/save-job/save-job.component';
     AddCompanyComponent,
     ListJobComponent,
     FormJobComponent,
-    SaveJobComponent
+    SaveJobComponent,
+    CompanyJobComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
