@@ -1,1 +1,15 @@
-<p>list-job works!</p>
+<div class="container" *ngFor="let job of jobs">
+  <div class="card m-1" style="width: 18rem">
+    <div class="card-body">
+      <div class="card-title">{{ job.title }}</div>
+      <div class="card-subtitle mb-2">{{ job.company_id }}</div>
+      <div class="card-text mb-2">{{ job.description }}</div>
+      <a type="button" class="card-link btn btn-warning btn-sm" href="/vagas/save/{{ job.id }}">
+        Editar
+      </a>
+      <a type="button" class="card-link btn btn-danger btn-sm" (click)="deleteJob(job)">
+        Deletar
+      </a>
+    </div>
+  </div>
+</div>

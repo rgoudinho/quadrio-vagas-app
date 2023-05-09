@@ -6,7 +6,7 @@
     novalidate
   >
     <div class="row">
-      <div class="col-8">
+      <div class="col-8 m-1">
         <input
           type="text"
           [(ngModel)]="job.title"
@@ -25,7 +25,7 @@
           <div *ngIf="title.errors">Titulo é obrigatório</div>
         </div>
       </div>
-      <div class="col-2">
+      <div class="col-2 m-1">
         <select
         [(ngModel)]="job.company_id"
         id="companyId"
@@ -46,7 +46,7 @@
         <div *ngIf="companyId.errors">Empresa é obrigatório</div>
       </div>
       </div>
-      <div class="col-2">
+      <div class="col-1 m-1">
         <input
           type="text"
           [(ngModel)]="job.wage"
@@ -65,7 +65,7 @@
           <div *ngIf="wage.errors">O valor do salário é obrigatório</div>
         </div>
       </div>
-      <div class="col-12">
+      <div class="col-12 m-1">
         <input
           type="text"
           [(ngModel)]="job.description"
