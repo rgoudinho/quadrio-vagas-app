@@ -23,15 +23,6 @@ export class CompanyService {
       catchError(this.handleError))
   }
 
-  // getCompanyById(id: number) {
-  //   return this.httpClient.get<Company>(this.url + '/' + id)
-  //     .pipe(
-  //       map(response => {
-  //         return response as Company;
-  //       })
-  //     )
-  // }
-
   getCompanyById(id: number): Observable<Company> {
     return this.httpClient.get<Company>(this.url + '/' + id)
       .pipe(
