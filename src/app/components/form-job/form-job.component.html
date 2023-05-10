@@ -6,6 +6,8 @@
     novalidate
   >
     <div class="row">
+      <div class="alert alert-success" role="alert" *ngIf="saveSucess">Vaga foi adicionada com sucesso</div>
+      <div class="alert alert-success" role="alert" *ngIf="updateSucess">Vaga foi editada com sucesso</div>
       <div class="col-8 m-1">
         <input
           type="text"

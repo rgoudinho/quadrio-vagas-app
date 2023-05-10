@@ -12,6 +12,8 @@ export class AddCompanyComponent {
   @Input() company = new Company;
   @Input() isEdit = false;
   companies!: Company[];
+  updateSucess = false;
+  saveSucess = false;
 
   constructor(private companieService: CompanyService) {}
 
@@ -26,10 +28,12 @@ export class AddCompanyComponent {
   saveCompany(form: NgForm) {
     if (this.isEdit) {
       this.companieService.updateCompany(this.company).subscribe(() => {
+        this.updateSucess = true;
         this.cleanForm(form);
       });
     } else {
       this.companieService.saveCompany(this.company).subscribe(() => {
+        this.saveSucess = true;
         this.cleanForm(form);
       });
     }

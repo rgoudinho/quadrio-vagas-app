@@ -15,6 +15,8 @@ export class FormJobComponent {
   @Input() isEdit = false;
   jobs!: Job[];
   companies!: Company[];
+  updateSucess = false;
+  saveSucess = false;
 
   constructor(private jobService: JobService, private companyService: CompanyService) {}
 
@@ -37,10 +39,12 @@ export class FormJobComponent {
   saveJob(form: NgForm) {
     if (this.isEdit) {
       this.jobService.updateJob(this.job).subscribe(() => {
+        this.updateSucess = true;
         this.cleanForm(form);
       });
     } else {
       this.jobService.saveJob(this.job).subscribe(() => {
+        this.saveSucess = true;
         this.cleanForm(form);
       });
     }

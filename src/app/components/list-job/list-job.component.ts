@@ -12,6 +12,7 @@ import { JobService } from 'src/app/services/job.service';
 export class ListJobComponent {
   job = new Job;
   jobs!: Job[];
+  deleteSucess = false;
 
   constructor(private jobService: JobService, private companyService: CompanyService) {}
 
@@ -27,6 +28,7 @@ export class ListJobComponent {
 
   deleteJob(job: Job) {
     this.jobService.deleteJob(job).subscribe(() => {
+      this.deleteSucess = true;
       this.getJob();
     });
   }

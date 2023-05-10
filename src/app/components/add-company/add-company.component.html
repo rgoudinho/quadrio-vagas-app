@@ -1,4 +1,6 @@
 <div class="container m-2">
+  <div class="alert alert-success" role="alert" *ngIf="saveSucess">Empresa foi adicionada com sucesso</div>
+  <div class="alert alert-success" role="alert" *ngIf="updateSucess">Empresa foi editada com sucesso</div>
   <form
     id="add-form"
     (ngSubmit)="f.form.valid && saveCompany(f)"

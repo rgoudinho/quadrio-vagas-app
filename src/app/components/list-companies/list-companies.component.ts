@@ -10,6 +10,7 @@ import { CompanyService } from '../../services/company.service';
 export class ListCompaniesComponent {
   company = new Company;
   companies!: Company[];
+  deleteSucess = false;
 
   constructor(private companyService: CompanyService) {}
 
@@ -25,6 +26,7 @@ export class ListCompaniesComponent {
 
   deleteCompany(company: Company) {
     this.companyService.deleteCompany(company).subscribe(() => {
+      this.deleteSucess = true;
       this.getCompany();
     });
   }
