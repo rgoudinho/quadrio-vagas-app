@@ -78,7 +78,7 @@
           class="form-control"
           [ngClass]="{ 'is-invalid': f.submitted && description.invalid }"
           placeholder="Descrição"
-          maxlength="300"
+          maxlength="2000"
         ></textarea>
         <div
           *ngIf="f.submitted && description.invalid"
